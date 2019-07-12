@@ -1,0 +1,10 @@
+           this.location = ('/' + window.location.href.split('/')[3]); //get path
+            this.clasHeader = classes.header;
+
+            // switch(this.location) {
+            //     case  routes.login:
+            //         this.clasHeader = classes.whiteHeader;
+            //     case routes.register:
+            //         this.clasHeader = classes.whiteHeader;
+            // }
+            console.log(this.location, this.clasHeader, props.them);
