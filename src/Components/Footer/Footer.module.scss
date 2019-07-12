@@ -1,0 +1,17 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: 22.2px 0 33.8px 0;
+  background: rgba(192, 196, 206, 0.127321);
+  border-top: 0.8px solid #E0E0E1;
+  font-family: Font Awesome 5 Brands;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14.4px;
+}
+
+.footer__item {
+  text-decoration: none;
+  color: #C0C4CE;
+  margin: 0 7px;
+}

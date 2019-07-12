@@ -1,6 +1,7 @@
 import {BrowserRouter, Route, Switch }  from "react-router-dom";
 import React from 'react';
 import Header from "../Components/Header/Header";
+import Footer from "../Components/Footer/Footer";
 import LoginPage from "./Login/LoginPage";
 
 
@@ -15,15 +16,12 @@ export default function Router(){
     return (
         <BrowserRouter>
 
-
+            <Header />
                 <Switch>
-                    <Route exact path = {routes.login} >
-                        <Header them = "white"/>
-                        <LoginPage/>
-                    </Route>
+                    <Route exact path = {routes.login} component={LoginPage} />
                     {/*<Route  component={NotFound}/>*/}
                 </Switch>
-                {/*<Footer/>*/}
+                <Footer/>
 
         </BrowserRouter>
     )

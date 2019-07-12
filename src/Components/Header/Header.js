@@ -1,56 +1,83 @@
 import React, { Component } from 'react'
-import classes from './Header.module.css'
+import s from './Header.module.scss'
 import styled from 'styled-components'
 import {Route, Switch }  from "react-router-dom";
 import  {routes} from '../../Scenes/router'
+import { Link, withRouter } from 'react-router-dom';
+import { compose, withHandlers } from 'recompose';
 
-import logo from '../../imgs/logo.svg';
-import heart from '../../imgs/heart.png';
+import LogoL from '../../imgs/LogoL.svg';
+import Heart from '../../imgs/Heart.svg';
+import HeartD from '../../imgs/HeartD.svg';
+import LogoD from '../../imgs/LogoD.svg';
 
 
-
-const Image = styled.img`
-
-    
-`;
-
+//TEMP
+var Api = {
+    Auth: [],
+};
+ Api.Auth.isLoggedIn  = true;
+//TEMP
 
 
 class Header extends Component {
 
     constructor(props) {
         super(props);
-
-            if(props.them === "white")
-                this.clasHeader = classes.whiteHeader;
-            else  this.clasHeader = classes.header;
-
     }
 
     render(){
+        let props = {...this.props};
+        props.loc = '/' +  props.location.pathname.split('/')[1];
+
+
+        props.dark = true;
+        props.search = true;
+        switch(props.loc)    {
+           case  routes.login: {props.dark = false;  props.search = false}
+           case  routes.register: {props.dark = false; props.search = false}
+        }
 
 
 
-        return (
-    <div className={classes.wraper}>
-            <div className={this.clasHeader}>
-                <img className={classes.logo} src={logo} onClick={()=>console.log('TODO: readres to home')} />
-                <div className={classes.right}>
-                    <button className={classes.buttonSell} >
-                        <div className={classes.textInButton}>
+        return(
+
+            <header className={props.dark ? s.header_dark : s.header}>
+                <div className={s.wrapper}>
+                    <div className={s.left}>
+                        <Link className={s.Logo} to={routes.home}>
+                            <img src={props.dark ? LogoD : LogoL} alt='logo' />
+                        </Link>
+                    </div>
+                    <div className={s.right}>
+                        <div className={s.sellButton}>
                             Sell
                         </div>
-                    </button>
-                    <div className={classes.login}>Login</div>
-                <img  className={classes.heart} src={heart} onClick={()=>console.log('TODO: show favorite products ')} />
+                        {Api.Auth.isLoggedIn ? (
+                            <div className={s.logButton} onClick={props.hendleLogout}>
+                                Logout
+                            </div>
+                        ) : (
+                            <Link className={s.logButton} to={routes.login}>Login</Link>
+                        )}
+                        <img className={s.like} src={props.dark ? HeartD : Heart} alt='like' />
+                    </div>
                 </div>
-
-
-            </div>
-    </div>
+                {props.children}
+            </header>
 
         )
     }
 }
 
-export default Header
+const enhencer = compose(
+    withRouter,
+    withHandlers({
+        hendleLogout: (props) => () => {
+            Api.Auth.isLoggedIn  = false;
+            props.history.push(routes.home);
+        }
+    }),
+);
+
+export default enhencer(Header);

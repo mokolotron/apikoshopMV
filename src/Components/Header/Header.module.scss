@@ -1,0 +1,54 @@
+.header_dark {
+  background: linear-gradient(180deg, #090810 0%, #171236 100%);
+  .logButton {
+    color: #fff;
+  }
+}
+
+.wrapper {
+  max-width: 1204px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 10px;
+  @media (max-width: 500px) {
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+
+.right {
+  display: flex;
+  align-items: center;
+}
+
+.logButton {
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #2B2B2B;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  margin: 0 46.5px 0 40.5px;
+}
+
+.like {
+  padding: 11.01px 0 10.38px 0;
+  cursor: pointer;
+}
+
+.sellButton {
+  font-size: 14px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  color: #FFFFFF;
+  background: #349A89;
+  border-radius: 4px;
+  padding:  9px 46px 10px 50px;
+  margin: 8px 0 3px 0;
+}

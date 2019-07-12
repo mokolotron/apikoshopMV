@@ -6,7 +6,7 @@ import './App.css';
 
 function App() {
   return (
-      <div className="root">
+      <div className="container">
         <Router/>
       </div>
 
