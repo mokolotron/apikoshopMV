@@ -10,6 +10,8 @@ import LogoL from '../../imgs/LogoL.svg';
 import Heart from '../../imgs/Heart.svg';
 import HeartD from '../../imgs/HeartD.svg';
 import LogoD from '../../imgs/LogoD.svg';
+import Search from "./components/Search";
+import {Button} from "../../smallComponents";
 
 
 //TEMP
@@ -51,7 +53,7 @@ class Header extends Component {
                     </div>
                     <div className={s.right}>
                         <div className={s.sellButton}>
-                            Sell
+                            <Button>Sell</Button>
                         </div>
                         {Api.Auth.isLoggedIn ? (
                             <div className={s.logButton} onClick={props.hendleLogout}>
@@ -63,7 +65,7 @@ class Header extends Component {
                         <img className={s.like} src={props.dark ? HeartD : Heart} alt='like' />
                     </div>
                 </div>
-                {props.children}
+                {props.search ? ( <Search />   ): ( null)}
             </header>
 
         )

@@ -17,10 +17,12 @@ export default function Router(){
         <BrowserRouter>
 
             <Header />
+            <div className={'content'}>
                 <Switch>
                     <Route exact path = {routes.login} component={LoginPage} />
                     {/*<Route  component={NotFound}/>*/}
                 </Switch>
+            </div>
                 <Footer/>
 
         </BrowserRouter>

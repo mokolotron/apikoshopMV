@@ -5,7 +5,7 @@ class LoginPage extends  Component {
     render(){
 
         return (
-           <div className={'content'}>Login</div>
+           <div className={'root'}>Login</div>
         )
     }
 }
