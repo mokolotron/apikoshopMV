@@ -10,16 +10,11 @@ import heart from '../../imgs/heart.png';
 
 
 const Image = styled.img`
-    cursor: pointer;
-    height 42px;
+
+    
 `;
 
-const ImageHeart = styled(Image)`
-    position: relative;
-    
-    
-    height: 18px;
-`;
+
 
 class Header extends Component {
 
@@ -39,8 +34,16 @@ class Header extends Component {
         return (
     <div className={classes.wraper}>
             <div className={this.clasHeader}>
-                <Image src={logo} onClick={()=>console.log('TODO: readres to home')} />
-                <ImageHeart src={heart} onClick={()=>console.log('TODO: show favorite products ')} />
+                <img className={classes.logo} src={logo} onClick={()=>console.log('TODO: readres to home')} />
+                <div className={classes.right}>
+                    <button className={classes.buttonSell} >
+                        <div className={classes.textInButton}>
+                            Sell
+                        </div>
+                    </button>
+                    <div className={classes.login}>Login</div>
+                <img  className={classes.heart} src={heart} onClick={()=>console.log('TODO: show favorite products ')} />
+                </div>
 
 
             </div>
