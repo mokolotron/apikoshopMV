@@ -60,7 +60,7 @@ class Header extends Component {
                                 Logout
                             </div>
                         ) : (
-                            <Link className={s.logButton} to={routes.login}>Login</Link>
+                            <Link className ={s.logButton} to={routes.login}>Login</Link>
                         )}
                         <img className={s.like} src={props.dark ? HeartD : Heart} alt='like' />
                     </div>

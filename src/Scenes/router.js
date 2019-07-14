@@ -3,6 +3,10 @@ import React from 'react';
 import Header from "../Components/Header/Header";
 import Footer from "../Components/Footer/Footer";
 import LoginPage from "./Login/LoginPage";
+import Api from '../api';
+
+
+import PrivateRoute from "../Helpers/PrivateRoute";
 
 
 export const  routes ={
@@ -19,7 +23,7 @@ export default function Router(){
             <Header />
             <div className={'content'}>
                 <Switch>
-                    <Route exact path = {routes.login} component={LoginPage} />
+                    <PrivateRoute exact condition={Api.Auth.isLoggedIn} path = {routes.login} component={LoginPage} />
                     {/*<Route  component={NotFound}/>*/}
                 </Switch>
             </div>

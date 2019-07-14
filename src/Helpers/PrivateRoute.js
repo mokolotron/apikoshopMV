@@ -1,19 +1,19 @@
 import React from 'react';
 
 import { Route, Redirect } from 'react-router-dom';
-import Api from '../../api';
+
 import { routes } from '../Scenes/router';
 
 
 
-function PrivateRoute({ component: Component, ...rest }) {
+function PrivateRoute({ component: Component, condition: Condition, ...rest }) {
   return (
     <Route
       {...rest}
       render={props =>{
         
         return(
-          Api.Auth.isLoggedIn ? (
+            Condition ? (
             <Component {...props} />
           ) : (
             <Redirect to={routes.login} />
