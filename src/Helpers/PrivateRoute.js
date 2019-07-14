@@ -6,7 +6,7 @@ import { routes } from '../Scenes/router';
 
 
 
-function PrivateRoute({ component: Component, condition: Condition, ...rest }) {
+function PrivateRoute({ component: Component, condition: Condition, failed: failed, ...rest }) {
   return (
     <Route
       {...rest}
@@ -16,7 +16,7 @@ function PrivateRoute({ component: Component, condition: Condition, ...rest }) {
             Condition ? (
             <Component {...props} />
           ) : (
-            <Redirect to={routes.login} />
+            <Redirect to={failed} />
           )
         )
       }}

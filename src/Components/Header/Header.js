@@ -12,43 +12,30 @@ import HeartD from '../../imgs/HeartD.svg';
 import LogoD from '../../imgs/LogoD.svg';
 import Search from "./components/Search";
 import {Button} from "../../smallComponents";
+import Api from '../../api/';
 
-
-//TEMP
-var Api = {
-    Auth: [],
-};
- Api.Auth.isLoggedIn  = true;
 //TEMP
 
 
-class Header extends Component {
 
-    constructor(props) {
-        super(props);
-    }
+function Header(props)
+ {
+       let loc = '/' +  props.location.pathname.split('/')[1];
 
-    render(){
-        let props = {...this.props};
-        props.loc = '/' +  props.location.pathname.split('/')[1];
-
-
-        props.dark = true;
-        props.search = true;
-        switch(props.loc)    {
-           case  routes.login: {props.dark = false;  props.search = false}
-           case  routes.register: {props.dark = false; props.search = false}
+       let dark = true;
+       let search = true;
+        switch(loc)    {
+           case  routes.login: {dark = false;  search = false}
+           case  routes.register: {dark = false; search = false}
         }
-
-
 
         return(
 
-            <header className={props.dark ? s.header_dark : s.header}>
+            <header className={dark ? s.header_dark : s.header}>
                 <div className={s.wrapper}>
                     <div className={s.left}>
                         <Link className={s.Logo} to={routes.home}>
-                            <img src={props.dark ? LogoD : LogoL} alt='logo' />
+                            <img src={dark ? LogoD : LogoL} alt='logo' />
                         </Link>
                     </div>
                     <div className={s.right}>
@@ -62,14 +49,13 @@ class Header extends Component {
                         ) : (
                             <Link className ={s.logButton} to={routes.login}>Login</Link>
                         )}
-                        <img className={s.like} src={props.dark ? HeartD : Heart} alt='like' />
+                        <img className={s.like} src={dark ? HeartD : Heart} alt='like' />
                     </div>
                 </div>
-                {props.search ? ( <Search />   ): ( null)}
+                {search ? ( <Search />   ): ( null)}
             </header>
 
         )
-    }
 }
 
 const enhencer = compose(

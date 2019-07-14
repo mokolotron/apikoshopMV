@@ -2,11 +2,14 @@ import {BrowserRouter, Route, Switch }  from "react-router-dom";
 import React from 'react';
 import Header from "../Components/Header/Header";
 import Footer from "../Components/Footer/Footer";
-import LoginPage from "./Login/LoginPage";
+
 import Api from '../api';
 
 
+
+
 import PrivateRoute from "../Helpers/PrivateRoute";
+import {NotFound, Home, LoginPage} from "./";
 
 
 export const  routes ={
@@ -23,8 +26,10 @@ export default function Router(){
             <Header />
             <div className={'content'}>
                 <Switch>
-                    <PrivateRoute exact condition={Api.Auth.isLoggedIn} path = {routes.login} component={LoginPage} />
-                    {/*<Route  component={NotFound}/>*/}
+                    <Route exact path = {routes.home} component={Home} />
+                    <PrivateRoute exact condition={!Api.Auth.isLoggedIn} path = {routes.login} failed={routes.home} component={LoginPage}  />
+
+                    <Route  component={NotFound}/>
                 </Switch>
             </div>
                 <Footer/>
