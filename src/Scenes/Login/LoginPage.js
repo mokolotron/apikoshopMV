@@ -1,13 +1,18 @@
 import React, { Component } from 'react'
-import Header from '../../Components/Header/Header'
+import {Link} from "react-router-dom";
+import {routes} from "../router";
 
-class LoginPage extends  Component {
-    render(){
+
+function LoginPage() {
+
 
         return (
-           <div className={'root'}>Login</div>
+           <div >
+               <p>Login</p>
+               <Link to={routes.register}> Register</Link>
+           </div>
         )
-    }
+
 }
 
-export default LoginPage
+export default LoginPage;
