@@ -7,9 +7,14 @@ import * as serviceWorker from './serviceWorker';
 import Store from './Store/createStore'
 import {connect, Provider} from "react-redux";
 
-
+function mapStateToProps(state) {
+    return {
+        isLoading: state.app.isLoading,
+    }
+}
 
 const AppConnected = connect(mapStateToProps)(App);
+
 
 
 

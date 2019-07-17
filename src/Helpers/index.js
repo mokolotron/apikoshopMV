@@ -1,1 +1,1 @@
-export {default as PrivateRouter} from './PrivateRouter.js'
+export {default as PrivateRouter} from './PrivateRoute.js'
