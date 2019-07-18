@@ -8,13 +8,14 @@ import * as Yup from 'yup';
 
 
 function mapStateToProps(state) {
+    console.log(state);
     return {
         isLoading: state.auth.login.isLoading,
     }
 }
 const mapDispatchToProps = {
     login: authOperations.login,
-};
+}
 
 const enhancer = compose(
     withRouter,
@@ -26,7 +27,7 @@ const enhancer = compose(
         },
         validationSchema: Yup.object().shape({
             email: Yup.string().required('required *').email(),
-            password: Yup.string().required('required *').min(8, 'Must be > 8 chars'),
+            password: Yup.string().required('required *').min(8, 'That field must be > 8 chars'),
         }),
     }),
     withState('submitError', 'setSubmitError', ''),

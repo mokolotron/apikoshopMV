@@ -5,16 +5,22 @@
   "dependencies": {
     "@letapp/redux-actions": "^3.0.1",
     "axios": "^0.19.0",
+    "formik": "^1.5.8",
+    "middleware": "^1.0.0",
     "node-sass": "^4.12.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
+    "react-thunk": "^1.0.0",
     "recompose": "^0.30.0",
     "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0",
     "styled-components": "^4.3.2",
-    "typescript": "^3.5.3"
+    "thunk": "0.0.1",
+    "typescript": "^3.5.3",
+    "yup": "^0.27.0"
   },
   "scripts": {
     "start": "react-scripts start",
